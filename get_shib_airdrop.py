@@ -19,14 +19,16 @@ YOUR_TG_API_ID = os.environ.get("YOUR_TG_API_ID")
 YOUR_TG_API_HASH = os.environ.get("YOUR_TG_API_HASH")
 # config the proxy if you are Chinese user
 NET_PROXY_HOST = os.environ.get("NET_PROXY_HOST")
-NET_PROXY_PORT = int(os.environ.get("NET_PROXY_PORT"))
+NET_PROXY_PORT = os.environ.get("NET_PROXY_PORT")
 
-client = TelegramClient(
-    'AirdropClient',
-    YOUR_TG_API_ID,
-    YOUR_TG_API_HASH,
-    proxy=('socks5', NET_PROXY_HOST, NET_PROXY_PORT)
-)
+clint=None
+
+if not NET_PROXY_HOST:
+    client = TelegramClient('AirdropClient',YOUR_TG_API_ID,YOUR_TG_API_HASH)
+else:
+    client = TelegramClient('AirdropClient',YOUR_TG_API_ID,YOUR_TG_API_HASH,
+                            proxy=('socks5', NET_PROXY_HOST, int(NET_PROXY_PORT))
+    )
 
 client.start()
 print("🎁AirdropAutoGet is RUNNING 💸")
@@ -39,5 +41,3 @@ while True:
 
     # ♻️ Come back: 6.0 hours later(💸 it's free)
     time.sleep(6*3600)
-
-
