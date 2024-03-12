@@ -26,9 +26,15 @@ cp .env.example .env
 ```python
 python get_shib_airdrop.py
 ```
+or
+```python
+python3 get_shib_airdrop.py
+```
+
 Then login your Telegram account
 
 ## Verify
 
-Congrats! see
+Congrats! see:
+
 ![shib](imgs/tg_shib.png)

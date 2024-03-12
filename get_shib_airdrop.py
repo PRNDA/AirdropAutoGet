@@ -17,21 +17,26 @@ load_dotenv(dotenv_path)
 # fill your configuration
 YOUR_TG_API_ID = os.environ.get("YOUR_TG_API_ID")
 YOUR_TG_API_HASH = os.environ.get("YOUR_TG_API_HASH")
+# config the proxy if you are Chinese user
+NET_PROXY_HOST = os.environ.get("NET_PROXY_HOST")
+NET_PROXY_PORT = int(os.environ.get("NET_PROXY_PORT"))
 
 client = TelegramClient(
-	'AirdropClient',
-	YOUR_TG_API_ID,
-	YOUR_TG_API_HASH,
-	# config the proxy if you are Chinese user
-	proxy=('socks5', '127.0.0.1', 7890)
+    'AirdropClient',
+    YOUR_TG_API_ID,
+    YOUR_TG_API_HASH,
+    proxy=('socks5', NET_PROXY_HOST, NET_PROXY_PORT)
 )
+
 client.start()
 
 while True:
-	client.send_message(
-		'https://t.me/OfficialShibaAirdropBot',
-		'🎁 Hourly Bonus'
-	)
+    client.send_message(
+        'https://t.me/OfficialShibaAirdropBot',
+        '🎁 Hourly Bonus'
+    )
 
-	# ♻️ Come back: 6.0 hours later(💸 it's free)
-	time.sleep(6*3600)
+    # ♻️ Come back: 6.0 hours later(💸 it's free)
+    time.sleep(6*3600)
+
+print("AirdropAutoGet is RUNNING")
