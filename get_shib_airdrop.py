@@ -29,6 +29,7 @@ client = TelegramClient(
 )
 
 client.start()
+print("🎁AirdropAutoGet is RUNNING 💸")
 
 while True:
     client.send_message(
@@ -39,4 +40,4 @@ while True:
     # ♻️ Come back: 6.0 hours later(💸 it's free)
     time.sleep(6*3600)
 
-print("AirdropAutoGet is RUNNING")
+

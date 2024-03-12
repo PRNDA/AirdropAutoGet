@@ -1,2 +1,3 @@
 telethon
 load_dotenv
+pysocks
